@@ -10,10 +10,11 @@ class PaymentCreate(forms.ModelForm):
             'customers_id': ('Имя покупателя'),
             'products_id' : ('Название товара'),
             'payment_Date': ('Дата покупки'),
-            'amount': ('Количество')
+            'amount': ('Количество'),
+
         }
 
         widgets = {
             'payment_Date': forms.DateInput(attrs={'type': 'date'}),
-            'amount' : NumberInput(attrs={'maxlength': 50})
+            'amount' : NumberInput(attrs={'maxlength': 50}),
         }
