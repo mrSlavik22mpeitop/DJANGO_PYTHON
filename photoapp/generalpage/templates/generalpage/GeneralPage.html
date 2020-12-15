@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Montserrat:400,700&amp;subset=cyrillic-ext" rel="stylesheet">
+     <link rel="stylesheet" href="{% static "css/general.css" %}" />
+    <title>Главная страница</title>
+</head>
+<body>
+
+
+<header class="header">
+    <div class="container">
+        <div class="header__inner">
+            <div class="header__logo" style="color:yellow">RUELS</div>
+
+            <nav class="nav">
+                <a href="{% url 'index-employee' %}" class="nav__link">Сотрудник</a>
+                <a href="{% url 'index-product' %}" class="nav__link">Товар</a>
+                <a href="{% url 'index-customer' %}" class="nav__link">Покупатель</a>
+                <a href="{% url 'index-order' %}" class="nav__link" >Покупка</a>
+                <a href="{% url 'index-payment' %}" class="nav__link" >Платёж</a>
+            </nav>
+        </div>
+    </div>
+</header>
+
+
+<div class="intro">
+    <div class="container">
+        <div class="intro__inner">
+            <h1 class="intro__title" style="color:yellow">Welcome RUELS</h1>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>Товар</title>
+     <link rel="stylesheet" href="{% static "css/customer.css" %}" />
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<body>
+
+<header>
+    <nav class="default-nav">
+      <ul>
+          <li> <a href= "{% url 'general' %}" style="color:white">RUELS</a></li>
+          <li> <a href= "{% url 'upload-order' %}" style="color:white">Добавить покупку</a> </li>
+        <li> <a href="{% url 'admin:index' %}" style="color:white">Администрирование</a> </li>
+      </ul>
+    </nav>
+  </header>
+
+
+{% block content %}
+<h1 class="mt-2" align="center">Отображение информации о покупке</h1>
+<div class="d-flex justify-content-center mt-2">
+ <table class="table w-75 mt-4">
+       <thead class="thead-dark">
+      <tr>
+       <th scope="col">Номер</th>
+       <th scope="col">Имя покупателя</th>
+       <th scope="col">Дата покупки</th>
+       <th scope="col">Дата получения</th>
+       <th scope="col">Дата отправки</th>
+       <th scope="col">Статус</th>
+       <th scope="col">Обновить покупку</th>
+       <th scope="col">Удалить покупку</th>
+    </tr>
+      </thead>
+     {% for order in orders %}
+      <tr>
+      <td>{{order.id}}</td>
+      <td>{{order.customers_id}}</td>
+      <td>{{order.order_date}}</td>
+      <td>{{order.required_date}}</td>
+      <td>{{order.shipped_date}}</td>
+      <td>{{order.status}}</td>
+      <td><a href="update/{{order.id}}" class="btn btn-dark mt-2 w-100" id = '{{order.id}}'>Обновление</a></td>
+      <td><a href="delete/{{order.id}}" class="btn btn-dark mt-2 w-100" id = '{{order.id}}'>Удаление</a></td>
+      {% endfor %}
+      </tr>
+ </table>
+</div>
+{% endblock %}
+</body>
+</html>
